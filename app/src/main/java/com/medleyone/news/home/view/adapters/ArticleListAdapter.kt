@@ -23,7 +23,7 @@ class ArticleListAdapter(private val articles: MutableList<Article>): RecyclerVi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_selection_view_holder, parent, false)
+            .inflate(R.layout.list_item_article_view_holder, parent, false)
 
         return ArticleViewHolder(view)
 
