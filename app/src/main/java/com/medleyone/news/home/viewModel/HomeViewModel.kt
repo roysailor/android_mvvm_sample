@@ -17,7 +17,7 @@ class HomeViewModel(private val newsRepository: NewsRepository = NewsRepository(
 
     public fun fetchTopHeadlines(){
 
-        topHeadLines.addSource(newsRepository.getTopHeadlines("in")){ articles ->
+        topHeadLines.addSource(newsRepository.getTopHeadlines("in", 10, 1)){ articles ->
 
             topHeadLines.postValue(articles)
 

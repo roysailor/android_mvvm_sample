@@ -13,11 +13,11 @@ class NewsRepository: NewsRepositoryInterface {
 
     private val retrofitClient = RetrofitClient()
 
-    override fun getTopHeadlines(country: String): LiveData<List<Article>> {
+    override fun getTopHeadlines(country: String, pageSize: Int, page: Int): LiveData<List<Article>> {
 
         val data = MutableLiveData<List<Article>>()
 
-        retrofitClient.getTopHeadlines(country).enqueue(object : Callback<TopHeadlineResponse>{
+        retrofitClient.getTopHeadlines(country, pageSize, page).enqueue(object : Callback<TopHeadlineResponse>{
             override fun onFailure(call: Call<TopHeadlineResponse>, t: Throwable) {
 
             }

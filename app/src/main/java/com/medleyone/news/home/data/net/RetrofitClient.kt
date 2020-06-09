@@ -37,9 +37,9 @@ class RetrofitClient {
 
     }
 
-    fun getTopHeadlines(country: String): Call<TopHeadlineResponse>{
+    fun getTopHeadlines(country: String, pageSize: Int, page: Int): Call<TopHeadlineResponse>{
 
-        return newsApi.getTopHeadlines(country)
+        return newsApi.getTopHeadlines(country, pageSize, page)
 
     }
 

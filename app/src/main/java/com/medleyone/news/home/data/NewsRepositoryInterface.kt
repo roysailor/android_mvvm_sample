@@ -6,6 +6,6 @@ import com.medleyone.news.home.data.model.TopHeadlineResponse
 
 interface NewsRepositoryInterface {
 
-    fun getTopHeadlines(country: String): LiveData<List<Article>>
+    fun getTopHeadlines(country: String, pageSize: Int, page:Int): LiveData<List<Article>>
 
 }

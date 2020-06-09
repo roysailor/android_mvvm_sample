@@ -6,7 +6,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.medleyone.news.R
 import com.medleyone.news.home.view.adapters.ArticleListAdapter
 import com.medleyone.news.home.viewModel.HomeViewModel
@@ -16,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: HomeViewModel
     var adapter = ArticleListAdapter(mutableListOf())
+    val layoutManager = LinearLayoutManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,24 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        rvTopHeadlines.layoutManager = LinearLayoutManager(this)
+        rvTopHeadlines.layoutManager = layoutManager
         rvTopHeadlines.adapter = adapter
+
+        rvTopHeadlines.addOnScrollListener(object: PaginationListener(layoutManager){
+
+            override fun loadMoreItems() {
+                TODO("Not yet implemented")
+            }
+
+            override fun isLastPage(): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun isLoading(): Boolean {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         srlTopHeadlines.setOnRefreshListener {
 
