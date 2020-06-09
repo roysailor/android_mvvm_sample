@@ -2,4 +2,8 @@
     <string name="app_name">News</string>
     <string name="headline_goes_here">Headline goes here</string>
     <string name="article_image">Article Image</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="settings">Settings</string>
 </resources>
