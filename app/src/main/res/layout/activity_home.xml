@@ -6,24 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".home.view.activities.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTopHeadlines"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srlTopHeadlines"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:clipToPadding="false"
+        android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/bnvMain"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopHeadlines"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:itemBackground="@android:color/background_light"
         android:background="@android:color/background_light"
+        app:itemBackground="@android:color/background_light"
         app:itemIconTint="@color/colorPrimary"
         app:itemTextColor="@android:color/secondary_text_light"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +47,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/bnvMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rvTopHeadlines" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

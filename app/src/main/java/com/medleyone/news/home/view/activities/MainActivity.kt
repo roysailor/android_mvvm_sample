@@ -26,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         rvTopHeadlines.layoutManager = LinearLayoutManager(this)
         rvTopHeadlines.adapter = adapter
 
+        srlTopHeadlines.setOnRefreshListener {
+
+            viewModel.fetchTopHeadlines()
+            srlTopHeadlines.isRefreshing = false
+
+        }
+
         showLoading()
         viewModel.getTopHeadlines().observe(this, Observer { articles ->
 
