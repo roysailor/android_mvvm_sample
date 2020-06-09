@@ -8,6 +8,7 @@ import com.medleyone.news.R
 import com.medleyone.news.home.data.model.Article
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import java.text.SimpleDateFormat
 
 
 class ArticleListAdapter(private val articles: MutableList<Article>): RecyclerView.Adapter<ArticleViewHolder>(){
@@ -65,7 +66,12 @@ class ArticleListAdapter(private val articles: MutableList<Article>): RecyclerVi
         Picasso.get().load(article.urlToImage).transform(transformation).into(holder.ivArticle)
 
         holder.tvSource.text = article.source.name
-        holder.tvDate.text = article.publishedAt
+
+        val inputDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+        val date = inputDateFormat.parse(article.publishedAt)
+        val outputDateFormat = SimpleDateFormat("EEE, MMM d, ''yy")
+
+        holder.tvDate.text = outputDateFormat.format(date)
 
     }
 
