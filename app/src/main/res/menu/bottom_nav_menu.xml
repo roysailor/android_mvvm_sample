@@ -6,25 +6,25 @@
         android:id="@+id/miHome"
         android:enabled="true"
         android:icon="@drawable/round_home_black_24"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="@string/home" />
     <item
         android:id="@+id/miSearch"
         android:enabled="true"
         android:icon="@drawable/round_search_black_24"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="@string/search" />
     <item
         android:id="@+id/miBookmarks"
         android:enabled="true"
         android:icon="@drawable/round_bookmark_black_24"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="@string/bookmarks" />
     <item
         android:id="@+id/miSettings"
         android:enabled="true"
         android:icon="@drawable/round_settings_black_24"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="@string/settings" />
 
 </menu>

@@ -2,6 +2,7 @@ package com.medleyone.news.home.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.medleyone.news.R
 import com.medleyone.news.home.view.adapters.ArticleListAdapter
 import com.medleyone.news.home.viewModel.HomeViewModel
+import kotlinx.android.synthetic.main.activity_home.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recyclerView: RecyclerView
     lateinit var viewModel: HomeViewModel
     var adapter = ArticleListAdapter(mutableListOf())
 
@@ -22,11 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        recyclerView = findViewById(R.id.rvTopHeadlines)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        rvTopHeadlines.layoutManager = LinearLayoutManager(this)
+        rvTopHeadlines.adapter = adapter
 
+        showLoading()
         viewModel.getTopHeadlines().observe(this, Observer { articles ->
+
+            hideLoading()
 
             articles?.let {
 
@@ -37,4 +40,15 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+    private fun showLoading() {
+        rvTopHeadlines.isEnabled = false
+        pbTopHeadlines.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        rvTopHeadlines.isEnabled = true
+        pbTopHeadlines.visibility = View.GONE
+    }
+
 }
